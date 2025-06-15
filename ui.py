@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import os
@@ -24,8 +23,8 @@ def show_login():
 
         if submitted:
             if authenticate_user(user, pwd):
-                st.session_state['authenticated'] = True
-                st.success("✅ Login successful! Redirecting...")
+                st.success("✅ Login successful! Please wait...")
+                st.session_state["authenticated"] = True
                 st.experimental_rerun()
             else:
                 st.error("❌ Invalid credentials. Please try again.")
@@ -89,7 +88,7 @@ def show_dashboard():
 
     st.markdown("### ⏳ Years Progress")
     for i, row in df.iterrows():
-        st.markdown(f"**{row['Name']} ({row['Emp Code']})** — `{row['Duration']}`")
+        st.markdown(f"{row['Name']} ({row['Emp Code']}) — {row['Duration']}")
         render_progress_bar(row['Years Completed'])
 
     show_analytics(df)
