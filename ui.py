@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 from config import authenticate_user
-from utils import process_file, save_processed_data, clear_data
+from utils import process_file, save_processed_data
 from analytics import show_analytics
 from notifications import show_reminder_popup
 from filters import apply_filters
